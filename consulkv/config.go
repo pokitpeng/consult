@@ -287,7 +287,7 @@ func (c *Config) Delete(path string) error {
 
 // Watch ...
 func (c *Config) Watch(path string, handler func(*Result)) error {
-	watcher, err := newWatcher(c.absPath(path))
+	watcher, err := newWatcher(c.absPath(path), c.conf.Token)
 	if err != nil {
 		return fmt.Errorf("watch fail: %w", err)
 	}

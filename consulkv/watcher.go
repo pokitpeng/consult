@@ -10,8 +10,8 @@ import (
 	"github.com/hashicorp/consul/api/watch"
 )
 
-func newWatcher(path string) (*watcher, error) {
-	wp, err := watch.Parse(map[string]interface{}{"type": "keyprefix", "prefix": path})
+func newWatcher(path, token string) (*watcher, error) {
+	wp, err := watch.Parse(map[string]interface{}{"type": "keyprefix", "prefix": path, "token": token})
 	if err != nil {
 		return nil, err
 	}
